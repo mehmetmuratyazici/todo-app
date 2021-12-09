@@ -25,5 +25,13 @@ public class MessionController {
         return ResponseEntity.ok(messionService.getMessions(userId));
     }
 
+    @PutMapping("/{id}")
+    private ResponseEntity<?> updateMession(@PathVariable String id){
+        return ResponseEntity.ok(messionService.updateMession(id).toString());
+    }
 
+    @DeleteMapping("{id}")
+    private ResponseEntity<?> daleteMession(@PathVariable String id){
+        return ResponseEntity.ok(messionService.deleteMession(id).toString());
+    }
 }
