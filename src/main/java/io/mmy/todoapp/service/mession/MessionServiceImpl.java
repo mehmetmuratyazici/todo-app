@@ -1,4 +1,4 @@
-package io.mmy.todoapp.service;
+package io.mmy.todoapp.service.mession;
 
 import io.mmy.todoapp.model.Mession;
 import io.mmy.todoapp.repo.MessionRepository;
@@ -13,8 +13,8 @@ import java.util.Optional;
 
 
 @Service
-public class MessionService {
-    private static final Logger logger = LoggerFactory.getLogger(MessionService.class);
+public class MessionServiceImpl implements MessionService {
+    private static final Logger logger = LoggerFactory.getLogger(MessionServiceImpl.class);
 
     @Autowired
     private MessionRepository messionRepository;
