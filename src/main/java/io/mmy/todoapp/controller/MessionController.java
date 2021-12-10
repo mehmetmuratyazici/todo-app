@@ -18,6 +18,10 @@ public class MessionController {
 
         return ResponseEntity.ok(messionServiceImpl.createMession(mession).toString());
     }
+    @GetMapping(path = "/hi")
+    private ResponseEntity<?> success(){
+        return ResponseEntity.ok("Hi How Are you ?");
+    }
 
     @GetMapping
     private ResponseEntity<?> getMessions(@RequestParam Integer userId){
