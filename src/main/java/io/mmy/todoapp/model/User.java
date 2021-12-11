@@ -26,9 +26,9 @@ public class User implements UserDetails {
 
     private String password;
 
-    private LocalDateTime createdAt;
+    private LocalDateTime createdAt = LocalDateTime.now();
 
-    private LocalDateTime updatedAt;
+    private LocalDateTime updatedAt = LocalDateTime.now();
 
     private String firstName;
 
@@ -42,12 +42,12 @@ public class User implements UserDetails {
     private boolean enabled=true;
 
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JoinTable(name = "auth_user_authority", joinColumns = @JoinColumn(referencedColumnName = "id"),inverseJoinColumns = @JoinColumn(referencedColumnName ="id"))
+   // @JoinTable(name = "auth_user_authority", joinColumns = @JoinColumn(referencedColumnName = "id"),inverseJoinColumns = @JoinColumn(referencedColumnName ="id"))
     private List<Authority> authorities;
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return this.enabled;
     }
 
     @Override
