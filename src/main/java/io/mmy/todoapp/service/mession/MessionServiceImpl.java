@@ -1,8 +1,10 @@
 package io.mmy.todoapp.service.mession;
 
+import io.mmy.todoapp.dto.MessionDto;
 import io.mmy.todoapp.model.Mession;
 import io.mmy.todoapp.repo.MessionRepository;
 import org.json.JSONObject;
+import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +19,16 @@ public class MessionServiceImpl implements MessionService {
     private static final Logger logger = LoggerFactory.getLogger(MessionServiceImpl.class);
 
     @Autowired
+    private ModelMapper modelMapper;
+
+    @Autowired
     private MessionRepository messionRepository;
 
-    public JSONObject createMession(Mession mession) {
+    public JSONObject createMession(MessionDto messionDto) {
         JSONObject result = new JSONObject();
 
         try{
+            Mession mession = modelMapper.map(messionDto, Mession.class);
             messionRepository.save(mession);
             result.put("success", true);
             result.put("id", mession.getId());
@@ -33,8 +39,8 @@ public class MessionServiceImpl implements MessionService {
         return result;
     }
 
-    public List<Mession> getMessions(Integer userId) {
-        return messionRepository.findMessionByUserId(userId);
+    public List<Mession> getMessions(String username) {
+        return messionRepository.findMessionByUsername(username);
     }
 
     public JSONObject updateMession(String id) {

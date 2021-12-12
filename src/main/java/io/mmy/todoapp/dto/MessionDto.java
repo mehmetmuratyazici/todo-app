@@ -1,4 +1,4 @@
-package io.mmy.todoapp;
+package io.mmy.todoapp.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class LoginInfo {
+public class MessionDto {
+    private String messionContext;
+
     private String username;
-    private String password;
 }

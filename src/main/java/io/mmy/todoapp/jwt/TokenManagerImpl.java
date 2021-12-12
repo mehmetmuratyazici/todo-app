@@ -14,7 +14,7 @@ import java.util.Date;
 public class TokenManagerImpl implements TokenManager{
 
     Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
-    private static final int validity = 1 * 60 * 1000;
+    private static final int validity = 10 * 60 * 1000;
 
     @Override
     public String generateToken(String username) {

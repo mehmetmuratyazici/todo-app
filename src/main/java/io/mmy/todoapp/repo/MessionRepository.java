@@ -10,5 +10,5 @@ import java.util.Optional;
 @Repository
 public interface MessionRepository extends JpaRepository<Mession, String> {
     Optional<Mession> findMessionById(String id);
-    List<Mession> findMessionByUserId(Integer userId);
+    List<Mession> findMessionByUsername(String username);
 }

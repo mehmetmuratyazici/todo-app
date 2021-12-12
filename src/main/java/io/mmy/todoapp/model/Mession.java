@@ -21,7 +21,7 @@ public class Mession {
     @Id
     private String id = UUID.randomUUID().toString();
 
-    private Integer userId;
+    private String username;
 
     private String messionContext;
 

@@ -1,5 +1,6 @@
 package io.mmy.todoapp.controller;
 
+import io.mmy.todoapp.dto.MessionDto;
 import io.mmy.todoapp.model.Mession;
 import io.mmy.todoapp.service.mession.MessionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,18 +15,14 @@ public class MessionController {
     private MessionServiceImpl messionServiceImpl;
 
     @PostMapping
-    private ResponseEntity<?> createMession(@RequestBody Mession mession){
+    private ResponseEntity<?> createMession(@RequestBody MessionDto messionDto){
 
-        return ResponseEntity.ok(messionServiceImpl.createMession(mession).toString());
-    }
-    @GetMapping(path = "/hi")
-    private ResponseEntity<?> success(){
-        return ResponseEntity.ok("Hi How Are you ?");
+        return ResponseEntity.ok(messionServiceImpl.createMession(messionDto).toString());
     }
 
     @GetMapping
-    private ResponseEntity<?> getMessions(@RequestParam Integer userId){
-        return ResponseEntity.ok(messionServiceImpl.getMessions(userId));
+    private ResponseEntity<?> getMessions(@RequestParam String username){
+        return ResponseEntity.ok(messionServiceImpl.getMessions(username));
     }
 
     @PutMapping("/{id}")
