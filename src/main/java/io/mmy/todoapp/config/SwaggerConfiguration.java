@@ -46,7 +46,7 @@ public class SwaggerConfiguration {
     private ApiInfo apiInfo() {
         return new ApiInfo(
                 "Todo REST API",
-                ".",
+                "Default username : mmy \n password : mmy ",
                 "1.0",
                 "Terms of service",
                 null,

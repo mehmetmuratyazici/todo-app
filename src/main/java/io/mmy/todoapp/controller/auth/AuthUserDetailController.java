@@ -40,6 +40,6 @@ public class AuthUserDetailController {
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@RequestBody UserDto userDto){
 
-        return ResponseEntity.ok(authUserDetailService.registerUser(userDto));
+        return ResponseEntity.ok(authUserDetailService.registerUser(userDto).toString());
     }
 }

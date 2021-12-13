@@ -67,6 +67,7 @@ public class AuthUserDetailService implements UserDetailsService {
 
         try{
             User user = modelMapper.map(userDto, User.class);
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
             userRepository.save(user);
             result.put("success", true);
             result.put("id", user.getId());
