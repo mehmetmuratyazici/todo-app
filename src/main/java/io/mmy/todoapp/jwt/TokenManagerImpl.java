@@ -13,7 +13,7 @@ import java.util.Date;
 @Service
 public class TokenManagerImpl implements TokenManager{
 
-    Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+    Key key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
     private static final int validity = 10 * 60 * 1000;
 
     @Override
